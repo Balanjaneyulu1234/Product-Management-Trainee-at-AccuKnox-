@@ -1,0 +1,60 @@
+{
+  "scanID": "12345678-abcd-efgh-ijkl-9876543210",
+  "clusterName": "minikube",
+  "framework": "nsa",
+  "timestamp": "2025-06-23T18:30:00Z",
+  "summary": {
+    "totalControls": 5,
+    "failedControls": 2,
+    "passedControls": 3,
+    "riskScore": 62
+  },
+  "controls": [
+    {
+      "id": "C-001",
+      "name": "Ensure RBAC is enabled",
+      "description": "RBAC allows granular control over resources in the cluster.",
+      "status": "failed",
+      "severity": "critical",
+      "resources": [
+        {
+          "kind": "Role",
+          "name": "default-admin",
+          "namespace": "kube-system"
+        }
+      ]
+    },
+    {
+      "id": "C-002",
+      "name": "Ensure Pod Security Policies are defined",
+      "description": "PSPs help enforce security settings for pods.",
+      "status": "failed",
+      "severity": "high",
+      "resources": []
+    },
+    {
+      "id": "C-003",
+      "name": "Minimize hostPath volumes",
+      "description": "hostPath volumes can lead to privilege escalations.",
+      "status": "passed",
+      "severity": "medium",
+      "resources": []
+    },
+    {
+      "id": "C-004",
+      "name": "Use approved container registries",
+      "description": "Restrict container sources to trusted registries.",
+      "status": "passed",
+      "severity": "low",
+      "resources": []
+    },
+    {
+      "id": "C-005",
+      "name": "Ensure secure API access",
+      "description": "Restrict Kubernetes API access using firewalls and RBAC.",
+      "status": "passed",
+      "severity": "medium",
+      "resources": []
+    }
+  ]
+}
